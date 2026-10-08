@@ -125,6 +125,12 @@ svg {
 .face.back {
     transform: rotateY(180deg);
 }
+
+#clock {
+    white-space: pre-line;
+    margin: 0 0 8px 0;
+    font-family: "Courier New", monospace;
+}
     </style>
 </head>
 <body data-min="-13 -8" data-max="13 16">
@@ -180,7 +186,7 @@ Email
     </section>
     <section data-pos="6 -11" class="borderous bordrclick allowclick nosel" style="--colour: #a6d189" onclick="this.classList.toggle('active')">
         <h2>My date/time</h2>
-        <aside id="clock" style="white-space: pre-line; margin: 0 0 8px 0;"></aside>
+        <aside id="clock"></aside>
         <script>
 const clockE = document.getElementById('clock');
 function updateClock() {
