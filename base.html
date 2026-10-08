@@ -73,6 +73,21 @@ svg {
     padding: 16px 28px;
 }
 .select { pointer-events: auto; }
+
+.transclick {
+    transition: transform 200ms ease;
+    transform-origin: center;
+    pointer-events: auto;
+}
+.transclick.active {
+    transform: rotate(-9deg) translate(-3px, -3px);
+}
+.expandclick {
+    transition: scale 200ms ease;
+}
+.expandclick.active {
+    scale: 1.2;
+}
     </style>
 </head>
 <body data-min="-13 -8" data-max="13 16">
@@ -81,7 +96,7 @@ svg {
         <img width="300" height="300" src="/fox.png" alt="Fox icon">
         <aside>Drag, scroll or use arrow keys<br>to move around!</aside>
     </section>
-    <section data-pos="-9 -5" class="borderous" style="--colour: #ca9ee6">
+    <section data-pos="-9 -5" class="borderous transclick allowclick nosel" style="--colour: #ca9ee6" onclick="this.classList.toggle('active')">
         <span>She/they<br><br>17 years old<br><br>Still figuring<br>out life</span>
     </section>
     <section data-pos="-10.5 2" style="--colour: #838ba7">
@@ -123,7 +138,7 @@ updateClock();
 setInterval(updateClock, 1000);
         </script>
     </section>
-    <section data-pos="13 2" style="--colour: #e5c890">
+    <section data-pos="13 0.5" style="--colour: #e5c890">
         <h2>Stuff I use</h2>
         <aside class="spacytxt">
 Laptop: <a href="https://frame.work/laptop12">Framework 12</a>
@@ -148,7 +163,7 @@ I can code in many languages (and can easily pick up new ones), but I have the m
 Coding takes up most of my time because it's fun, but also I enjoy drawing (although I'm not very good) and playing Celeste
         </aside>
     </section>
-    <section data-pos="-14 -13" class="borderous" style="--colour: #e78284">
+    <section data-pos="-14 -13" class="borderous expandclick allowclick nosel" style="--colour: #e78284" onclick="this.classList.toggle('active')">
         Made with &lt;3<br>and :3
     </section>
 </body>
