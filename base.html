@@ -41,30 +41,30 @@ Email
         <div id="aboutgrid">
             <div class="flipcard allowclick nosel" onclick="this.classList.toggle('active')"><div class="flip-inner">
                 <section class="face front" style="--colour: #e78284">
-                    We started coding through Scratch when we were 7 years old
+                    I started coding through Scratch when I was 7 years old
                 </section><section class="face back" style="--colour: #ef9f76"><span>
-                    We started (didn't finish) doing more and more complex things like Mario Galaxy and Splatoon in Scratch (with full 3D), before <i>finally</i> moving on
+                    I started (didn't finish) doing more and more complex things like Mario Galaxy and Splatoon in Scratch (with full 3D), before <i>finally</i> moving on
                 </span></section>
             </div></div>
             <div class="flipcard allowclick nosel" onclick="this.classList.toggle('active')"><div class="flip-inner">
                 <section class="face front" style="--colour: #e5c890">
-                    We don't vibe code, but still use AI effectively
+                    I don't vibe code, but still use AI effectively
                 </section><section class="face back" style="--colour: #a6d189">
-                    We usually use the code AI gives but implement it ourself, to get the same efficiency but better structured and more efficient.
+                    I usually use the code AI gives but implement it myself, to get the same efficiency but better structured and more efficient
                 </section>
             </div></div>
             <div class="flipcard allowclick nosel" onclick="this.classList.toggle('active')"><div class="flip-inner">
                 <section class="face front" style="--colour: #81c8be"><span>
-                    We <i>love</i> old retro stuff and working with bits and bytes, including the original Mario and Zelda for the NES
+                    I <i>love</i> old retro stuff and working with bits and bytes, including the original Mario and Zelda for the NES!
                 </span></section><section class="face back" style="--colour: #8caaee">
-                    I even started (was very hard, didn't finish; but got a proof of concept working) writing our own game for the NES!
+                    I even started (was very hard, didn't finish; but got a proof of concept working) writing my own game for the NES!
                 </section>
             </div></div>
             <div class="flipcard allowclick nosel" onclick="this.classList.toggle('active')"><div class="flip-inner">
                 <section class="face front" style="--colour: #babbf1">
-                    We have been planning to make a game since our Scratch days, the plan for which has evolved heavily over time.
+                    We have been planning to make a game since our Scratch days, the plan for which has evolved heavily over time
                 </section><section class="face back" style="--colour: #eebebe">
-                    Blaze Sudios is the game engine for it! It is a combination of Mario Galaxy, dragons, and many other things which have defined me over the years
+                    Blaze Sudios is the game engine for it! It is a combination of Mario Galaxy, dragons, and many other things which have defined us over the years!
                 </section>
             </div></div>
         </div>
@@ -107,26 +107,30 @@ Text/code editor: <a href="https://neovim.io/">Neovim</a>
         <h2>Stuff I do</h2>
         <div style="display: flex;">
             <div id="stuffidobtns">
-                <button class="allowclick" onclick="updSID(`
+                <button class="allowclick" onclick="updSID(this, `
 I can code in many languages (and can easily pick up new ones), but I have the most experience in Python.
-`)">Programming languages</button>
-                <button class="allowclick" onclick="updSID(`
+`)" style="--colour: #40a02b">Programming languages</button>
+                <button class="allowclick" onclick="updSID(this, `
 Coding takes up most of my time because it's fun, but also I enjoy drawing (although I'm not very good) and playing Celeste (which I have 100%'d)
-`)">Other hobbies</button>
-                <button class="allowclick" onclick="updSID(`
+`)" style="--colour: #179299">Other hobbies</button>
+                <button class="allowclick" onclick="updSID(this, `
 I am currently learning Japanese, でもまだ下手と思っています。
-`)">Japanese</button>
+`)" style="--colour: #7287fd">Japanese</button>
             </div>
             <aside id="stuffidotxt" class="spacytxt allowclick nosel" onclick="sidClick()"></aside>
         </div>
         <script>
 var init = 0
-function updSID(txt, resetin=true) {
-    document.getElementById('stuffidotxt').innerText = txt.trim()
+const txtelm = document.getElementById('stuffidotxt')
+function updSID(elm, txt, resetin=true) {
+    txtelm.style.setProperty("--darker", elm.style.getPropertyValue("--colour"))
+    txtelm.innerText = txt.trim()
     if (resetin) init = 0
     else init += 1
 }
 const sidOpts = [
+    `Click one of the side buttons!`,
+    `Click one of the side buttons!`,
     `Click one of the side buttons!`,
     `No don't click this, click one of the side buttons!!`,
     `What are you doing? I said the SIDE BUTTONS.`,
@@ -142,8 +146,9 @@ const sidOpts = [
     `Don't tell Tsunami I said this!`,
     `Anywho good luck with whatever you are doing today!`
 ]
+const parent = document.currentScript.parentElement
 function sidClick() {
-    updSID(sidOpts[Math.min(init, sidOpts.length-1)], false)
+    updSID(parent, sidOpts[Math.min(init, sidOpts.length-1)], false)
 }
 sidClick()
         </script>

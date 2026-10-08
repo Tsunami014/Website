@@ -58,12 +58,19 @@ svg {
 }
 button {
     width: 100%;
-    padding: 5px;
+    padding: 6px;
     margin: 3px 0;
-    background: #DDD;
-    border: 2px black solid;
-    border-radius: 8px;
-    transition: color 0.2s ease, background-color 0.2s ease, translate 0.05s ease, box-shadow 0.05s ease;
+    --colour: #6c6f85;
+    background-color: oklch(from var(--colour) calc(l + 0.2) calc(c * 0.7) h);
+    color: oklch(from var(--colour) calc(l - 0.04) calc(c * 1.2) h);
+    border: 3px white solid;
+    border-radius: 12px;
+    transition: background-color 0.2s ease, translate 0.05s ease, box-shadow 0.08s ease;
+}
+button:hover {
+    background-color: oklch(from var(--colour) calc(l + 0.225) calc(c * 0.725) h);
+    translate: -2px -2px;
+    box-shadow: 3px 3px 1px 1px #FFF8;
 }
 
 .linkit {
@@ -95,8 +102,8 @@ button {
     transition: box-shadow 200ms ease, translate 200ms ease;
 }
 .glowclick.active {
-    box-shadow: 2px 2px 8px 6px #1466;
-    translate: -2px -2px;
+    box-shadow: 4px 4px 1px 3px #1466;
+    translate: -5px -5px;
 }
 .bordrclick {
     transition: box-shadow 200ms ease, border-width 200ms ease;
