@@ -145,36 +145,55 @@ var init = 0
 const txtelm = document.getElementById('stuffidotxt')
 function updSID(elm, txt, resetin=true) {
     txtelm.style.setProperty("--darker", elm.style.getPropertyValue("--colour"))
-    txtelm.innerText = txt.trim()
+    const ntxt = txt.trim()
+    if (ntxt.startsWith('>')) {
+        txtelm.innerHTML = ntxt.substr(1)
+    } else {
+        txtelm.innerText = ntxt
+    }
     if (resetin) init = 0
     else init += 1
 }
+function linky(url) { return `<a class="allowclick" href="${url}" onclick="event.stopPropagation()">${url}</a>` }
 const sidOpts = [
-    `Click one of the side buttons!`,
     `Click one of the side buttons!`,
     `Click one of the side buttons!`,
     `No don't click this, click one of the side buttons!!`,
     `What are you doing? I said the SIDE BUTTONS.`,
     `I don't think you understand. Click the BUTTONS that are on the SIDE.`,
+    `They are the buttons\nover\n<- THERE`,
     `This is not a button, nor is it on the side!`,
+    `This doesn't have a border, nor hover effects, nor the heavily contrasting text!`,
+    `What made you want to click this anyway?`,
+    `Are you even paying attention?`,
     `Ah I give up`,
     `You win`,
-    `I'll just leave`,
-    "","","","","",
-    `Oh hey I'm back`,
-    `While I'm here, you want to know a secret about Tsunami?`,
-    `I won't mention much, I'll only mention the names Iolite and Grapefruit.`,
-    `Don't tell Tsunami I said this!`,
-    `Anywho good luck with whatever you are doing today!`
+    `I'll tell you everything I know`,
+    `Starting with some fun facts!`,
+    `>1. This website was inspired by ${linky("https://hex4.xyz/")} and ${linky("https://aconlin.com/")}`,
+    `2. The background to this page is procedurally generated! Refresh the page and it will be different!`,
+    `3. Tsunami used AI for the backend mechanics (not UI or text), which they don't usually do but at the time wasn't bothered to do it themselves.`,
+    `And lastly, something about Tsunami`,
+    `Don't tell them I mentioned this!`,
+    `I won't say much, I'll only mention the names Iolite and Grapefruit.`,
+    `Remember, that didn't come from me. Got it?`,
+    `Anywho have a good day!`
 ]
 const parent = document.currentScript.parentElement
 function sidClick() {
-    updSID(parent, sidOpts[Math.min(init, sidOpts.length-1)], false)
+    updSID(parent, sidOpts[Math.min(Math.floor(init/2), sidOpts.length-1)], false)
 }
 sidClick()
         </script>
     </section>
     <section data-pos="-14 -13" class="borderous expandclick allowclick nosel" style="--colour: #e78284; font-size: 16px" onclick="this.classList.toggle('active')">
-        Try clicking stuff!<br>Made with &lt;3<br>and :3<br>
+        Try clicking stuff!<br>Made with &lt;3 and :3<br>by Tsunami
     </section>
+    <script>
+document.addEventListener('keydown', function (e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'a' || e.key === 'A' || e.keyCode === 65)) {
+    e.preventDefault();
+  }
+});
+    </script>
 </body>
