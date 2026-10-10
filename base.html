@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./melon.js" defer></script>
 </head>
-<body data-min="-14 -8" data-max="15 16">
+<body data-min="-14 -8" data-max="15 17">
     <section class="borderous" style="--colour: #8caaee">
         <h1>Hiya! I'm Tsunami!</h1>
         <img class="glowclick allowclick nosel" width="300" height="300" src="/fox.png" alt="Fox icon" onclick="this.classList.toggle('active')" draggable="false">
@@ -27,12 +27,33 @@ Email
 </a>
 <span class="select" style="color: #eed49f">hiya@tsunam.net</span>
     </section>
-    <section data-pos="-12.25 15.5" style="--colour: #85c1dc">
+    <section data-pos="-12.25 15" style="--colour: #85c1dc; max-width: 26em;">
         <h2>Coolest projets</h2>
         <aside class="spacytxt">
-<a href="https://github.com/Tsunami014/BlazeSudio">Blaze Sudio</a> - A game engine with physics, etc. written in Python!<br>
-<a href="https://github.com/Tsunami014/Grapefruit">Grapefruit</a> - A mobile todo app with a virtual (<i>non-LLM</i>, I wrote all dialogue myself) friend, task recommendations and heaps more!<br>
-<a href="https://github.com/Tsunami014/Sapla">Sapla</a> - A cool flashcard app<br>
+<a href="https://github.com/Tsunami014/BlazeSudio">Blaze Sudio</a> (Python)<br>
+    <span class="chng c-i">Game engine</span>
+    <span class="chng c-o">Physics</span>
+    <span class="chng c-r">Cool tools!</span>
+<hr class="rbw1"><a href="https://github.com/Tsunami014/Grapefruit">Grapefruit</a> (C++ Qt)<br>
+    <span class="chng c-i">Mobile app</span>
+    <span class="chng c-b">Todo app</span>
+    <span class="chng c-p">Virtual friend</span>
+    <span class="chng c-g">Handmade dialogue</span>
+    <span class="chng c-y"><i>Non-LLM</i></span>
+    <span class="chng c-o">Task recommendation</span>
+    <span class="chng c-r">QOL features</span>
+<hr class="rbw2"><a href="https://github.com/Tsunami014/Sapla">Sapla</a> (C++ Qt)<br>
+    <span class="chng c-i">Flashcard app</span>
+<script>
+const COLS = ['c-r', 'c-o', 'c-y', 'c-g', 'c-b', 'c-i', 'c-p']
+document.querySelectorAll('.chng').forEach((e)=>{
+    e.classList.add('allowclick', 'nosel')
+    e.onclick = ()=>{
+        const old = e.classList[1]
+        e.classList.replace(old, COLS[(COLS.indexOf(old)+1)%COLS.length])
+    }
+})
+</script>
         </aside>
         <span style="margin: 5px;">See more <a href="https://github.com/Tsunami014?tab=repositories">here</a></span>
     </section>

@@ -56,22 +56,61 @@ svg {
     width: 3.5em;
     height: 3.5em;
 }
-button {
+button, .chng {
     width: 100%;
     padding: 6px;
     margin: 3px 0;
     --colour: #6c6f85;
+    --border: #FFF;
     background-color: oklch(from var(--colour) calc(l + 0.2) calc(c * 0.7) h);
     color: oklch(from var(--colour) calc(l - 0.04) calc(c * 1.2) h);
-    border: 3px white solid;
+    border: 3px var(--border) solid;
     border-radius: 12px;
     transition: background-color 0.2s ease, translate 0.05s ease, box-shadow 0.08s ease;
 }
-button:hover {
+button:hover, .chng:hover {
     background-color: oklch(from var(--colour) calc(l + 0.225) calc(c * 0.725) h);
     translate: -2px -2px;
-    box-shadow: 3px 3px 1px 1px #FFF8;
+    box-shadow: 3px 3px 1px 1px rgb(from var(--border) r g b / 50%);
 }
+hr {
+    border: none;
+    height: 3px;
+    border-radius: 3px;
+}
+hr.rbw1 {
+    background: linear-gradient(to right,
+        #ea999c,
+        #ef9f76,
+        #e5c890,
+        #a6d189
+    );
+}
+hr.rbw2 {
+    background: linear-gradient(to right,
+        #85c1dc,
+        #8caaee,
+        #ca9ee6,
+        #ea999c
+    );
+}
+
+.chng {
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 6px;
+    margin: 3px;
+    font-size: 16px;
+    --border: oklch(from var(--colour) calc(l + 0.05) calc(c * 1.35) h);
+}
+
+.c-r { --colour: #ea999c; }
+.c-o { --colour: #ef9f76; }
+.c-y { --colour: #e5c890; }
+.c-g { --colour: #a6d189; }
+.c-b { --colour: #85c1dc; }
+.c-i { --colour: #8caaee; }
+.c-p { --colour: #ca9ee6; }
 
 .linkit {
     display: inline-flex;
