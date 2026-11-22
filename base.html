@@ -117,6 +117,7 @@ Laptop: <a href="https://frame.work/laptop12">Framework 12</a>
 Operating system: <a href="https://nixos.org/">NixOS</a>
 <br>
 Window manager: <a href="https://github.com/niri-wm/niri">Niri</a>
+<br><span style="font-size: 14px;">(with a <a href="https://github.com/Tsunami014/bar">custom quickshell</a>!)</span>
 <br>
 Browser: <a href="https://zen-browser.app/">Zen browser</a>
 <br>
@@ -133,7 +134,7 @@ Text/code editor: <a href="https://neovim.io/">Neovim</a>
         <div style="display: flex;">
             <div id="stuffidobtns">
                 <button class="allowclick" onclick="updSID(this, `
-I can code in many languages (and can easily pick up new ones), but I have the most experience in Python.
+We can code in many languages (and can easily pick up new ones), but have the most experience in Python.
 `)" style="--colour: #40a02b">Programming languages</button>
                 <button class="allowclick" onclick="updSID(this, `
 Coding takes up most of my time because it's fun, but also I enjoy drawing (although I'm not very good yet) and playing Celeste (which I have 100%'d)
@@ -160,7 +161,6 @@ function updSID(elm, txt, resetin=true) {
 }
 function linky(url) { return `<a class="allowclick" href="${url}" onclick="event.stopPropagation()">${url}</a>` }
 const sidOpts = [
-    `Click one of the side buttons!`,
     `Click one of the side buttons!`,
     `No don't click this, click one of the side buttons!!`,
     `What are you doing? I said the SIDE BUTTONS.`,
